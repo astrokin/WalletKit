@@ -16,6 +16,11 @@ public struct AnyCoinType: CoinType {
     public let symbol :String
     public let id     :UInt32
     
+    public init(symbol: String, id: UInt32) {
+        self.symbol = symbol
+        self.id = id
+    }
+    
     public func address(for privateKey: ExtendedKey, using keyDerivator: KeyDerivator.Type = DefaultKeyDerivator.self) throws -> String {
         switch symbol {
         case "eth", "ETH":
