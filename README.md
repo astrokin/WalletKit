@@ -1,3 +1,22 @@
+## PLEASE NOTE! 
+
+[This is fork from KevinVitale/WalletKit](https://github.com/KevinVitale/WalletKit)
+
+Due to SPM (Swift package manager) github restrictions it's impossible to add original KevinVitale wallet as dependency to SPM. 
+That's why below repos had been created to make it work:
+ - 1 [CryptoCore](https://github.com/astrokin/CryptoCore) forked from `KevinVitale/WalletKit`
+ - 2 [WalletKit](https://github.com/astrokin/WalletKit) forked from `KevinVitale/WalletKit`
+
+## Adding `WalletKit` as a Dependency
+To use the `WalletKit` library in a Swift Package Manager (SPM) project, add the following line to the _dependencies_ in you `Package.swift` file:
+    
+```swift
+.package(url: "https://github.com/astrokin/WalletKit", from: "0.0.3"),
+```
+
+The `WalletKit` library is under active development, and while attempts are made to maintain source-stability, this is not guaranteed between minor versions. You may specify `.upToNextMinor(from:)`, instead of `from(_:)`, if you need to be at a specific version.
+
+
 <img src="WalletKit.png" />
 
 ## Platforms
@@ -6,16 +25,7 @@
 - **Linux**
 
 ### CLI Utility
-[This CLI utility](https://github.com/KevinVitale/WalletKitCLI) is cross-platform, and demonstrates a portion of this framework's functionality.
-
-## Adding `WalletKit` as a Dependency
-To use the `WalletKit` library in a Swift Package Manager (SPM) project, add the following line to the _dependencies_ in you `Package.swift` file:
-    
-```swift
-.package(url: "https://github.com/KevinVitale/WalletKit", from: "0.0.3"),
-```
-
-The `WalletKit` library is under active development, and while attempts are made to maintain source-stability, this is not guaranteed between minor versions. You may specify `.upToNextMinor(from:)`, instead of `from(_:)`, if you need to be at a specific version.
+[This CLI utility](https://github.com/astrokin/WalletKitCLI) is cross-platform, and demonstrates a portion of this framework's functionality.
 
 ## Usage
 
