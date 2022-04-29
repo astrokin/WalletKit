@@ -11,7 +11,7 @@ That's why below repos had been created to make it work:
 To use the `WalletKit` library in a Swift Package Manager (SPM) project, add the following line to the _dependencies_ in you `Package.swift` file:
     
 ```swift
-.package(url: "https://github.com/astrokin/WalletKit", from: "0.0.3"),
+.package(url: "https://github.com/astrokin/WalletKit", branch: "main"),
 ```
 
 The `WalletKit` library is under active development, and while attempts are made to maintain source-stability, this is not guaranteed between minor versions. You may specify `.upToNextMinor(from:)`, instead of `from(_:)`, if you need to be at a specific version.
