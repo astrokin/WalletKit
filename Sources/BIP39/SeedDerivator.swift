@@ -113,7 +113,7 @@ public struct CryptoSwiftSeedDerivator: SeedDerivator {
     public static func derivedSeed(fromPassword password: String, salt: String) -> Result<Data, SeedDerivatorError> {
         Result {
             let keyDerivation = try PKCS5.PBKDF2(
-                password   :password.data(using: .utf8)!.map(UInt8.init),
+                password   :Array(password.data(using: .utf8)!),
                 salt       :salt.data(using: .utf8)!.map({ $0 }),
                 iterations :2048,
                 variant    :.sha512
