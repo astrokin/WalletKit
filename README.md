@@ -2,7 +2,7 @@
 
 [This is fork from KevinVitale/WalletKit](https://github.com/KevinVitale/WalletKit)
 
-Due to SPM (Swift package manager) github restrictions it's impossible to add original KevinVitale wallet as dependency to SPM. 
+Due to SPM (Swift package manager) and github restrictions it's impossible to add original **KevinVitale** wallet as dependency to SPM in XCode. 
 That's why below repos had been created to make it work:
  - 1 [CryptoCore](https://github.com/astrokin/CryptoCore) forked from `KevinVitale/WalletKit`
  - 2 [WalletKit](https://github.com/astrokin/WalletKit) forked from `KevinVitale/WalletKit`
