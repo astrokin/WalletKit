@@ -7,7 +7,7 @@ final class MnemonicTests: XCTestCase {
         for (idx, vector) in tests.enumerated() {
             let mnemonic = try Mnemonic(entropy: vector)
             let seedDflt = try mnemonic.seed(passphrase: "TREZOR").map(String.init(hexEncoding:)).get()
-            let seedBSSL = try mnemonic.seed(passphrase: "TREZOR", derivator: BoringSSLSeedDerivator.self).map(String.init(hexEncoding:)).get()
+            let seedBSSL = try mnemonic.seed(passphrase: "TREZOR", derivator: CommonCryptoSeedDerivator.self).map(String.init(hexEncoding:)).get()
 
             XCTAssertEqual(mnemonic, try Mnemonic(seedPhrase: vector.words.joined(separator: " "))) // Test `Equatable` conformance
             XCTAssertEqual(seedDflt, vector.binarySeed)             // Test `seed` generation ("platform default")
