@@ -21,14 +21,18 @@ extension WalletProtocol {
 
 extension WalletProtocol {
     public func account(coinType: AnyCoinType, atIndex index: KeyIndex.RawValue, isExternal external: Bool = true) throws -> some AccountProtocol {
-        try Account(
-            coinType: coinType,
-            privateKey: try self.rootKey
-                .privateKey(atIndex: .hardened(44))             // Purpose
-                .privateKey(atIndex: .hardened(coinType.id))    // Coin
-                .privateKey(atIndex: .hardened(index))          // Account
-                .privateKey(atIndex: .normal(external ? 0 : 1)) // Change
-        )
+        let pk = try self.rootKey
+            .privateKey(atIndex: .hardened(44))             // Purpose
+            .privateKey(atIndex: .hardened(coinType.id))    // Coin
+            .privateKey(atIndex: .hardened(index))          // Account
+            .privateKey(atIndex: .normal(external ? 0 : 1)) // Change
+            
+        switch coinType.symbol {
+        case "atom", "ATOM":
+            return try Account(coinType: coinType, privateKey: pk.privateKey(atIndex: .normal(0)))
+        default:
+            return try Account(coinType: coinType, privateKey: pk)
+        }
     }
 }
 
